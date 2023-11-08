@@ -94,10 +94,11 @@ const Header = ({data}:any) => {
         {filteredData?.map((item, index) => (
           <li onClick={()=>handleCourse(item["Course Name"])} className='px-4 py-2 hover:bg-[whitesmoke] cursor-pointer' key={index}>
             <strong>Course Name: </strong>
-            {item["Course Name"]}
+            <p className='text-black font-satoshi font-normal text-[16px]'>{item["Course Name"]}</p>
+{/*             
             <br />
             <strong>Skills: </strong>
-            {item.Skills}
+            {item.Skills} */}
           </li>
         ))}
       </ul>
@@ -114,6 +115,7 @@ const Header = ({data}:any) => {
           onClose={()=>setOpen2(false)}
           aria-labelledby="keep-mounted-modal-title"
           aria-describedby="keep-mounted-modal-description"
+          
         >
          <div style={{
           position: 'absolute' as 'absolute',
