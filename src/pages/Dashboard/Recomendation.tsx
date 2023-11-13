@@ -84,6 +84,20 @@ const Recomendation = ({course}:any) => {
               }
             </p>
             <p className="p-2 bg-white shadow-2 mt-3 rounded-md">
+            <span className="font-satoshi font-medium text-[18px] ">Books: </span>
+             {
+                data[active][0]["Books"]
+              }
+            </p>
+            <p className="p-2 bg-white shadow-2 mt-3 rounded-md">
+            <span className="font-satoshi font-medium text-[18px] ">Pre-requisites: </span>
+             {
+                data[active][0]["Pre-requisites"]
+              }
+            </p>
+
+            
+            <p className="p-2 bg-white shadow-2 mt-3 rounded-md">
             <span className="font-satoshi font-medium text-[18px] ">Skills: </span>
              {
                 data[active][0]["Skills"]

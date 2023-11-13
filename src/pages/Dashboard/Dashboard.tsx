@@ -59,6 +59,7 @@ const Dashboard = () => {
   const setOpenModel=()=>{
     setOpen(true)
   }
+  console.log(data)
   return (
     <div className="flex items-center justify-center">
       <div className="w-[75%] px-6 py-3 no-scrollbar flex flex-col  h-[680px] overflow-y-auto  bg-[white] rounded-md shadow-2">
