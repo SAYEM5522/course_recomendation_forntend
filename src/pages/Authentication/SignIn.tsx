@@ -57,7 +57,7 @@ const SignIn = () => {
   })
   }
   const postGoogle=async(email)=>{
-    await axios.post(`http://localhost:8081/glogin`,{Email:email}).then((res)=>{
+    await axios.post(`https://interrective-demo-server.onrender.com/glogin`,{Email:email}).then((res)=>{
       localStorage.setItem("_ttt_",res.data.token)
       localStorage.setItem("email",res.data.user)
       navigate("/overview")

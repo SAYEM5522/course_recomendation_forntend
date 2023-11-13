@@ -52,17 +52,17 @@ function App() {
       <>
        <Routes>
         <Route  path="/space" element={
-          <PrivateRoute>
+          // <PrivateRoute>
             <SpaceInfo />
-          </PrivateRoute>
+          // </PrivateRoute>
         } />
         
         
         <Route path="/overview" element={
-          <PrivateRoute>
+          // <PrivateRoute>
         <Dashboard />
 
-          </PrivateRoute>
+          // </PrivateRoute>
         }/>
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/profile" element={<Profile />} />

@@ -23,7 +23,7 @@ const SignUp = () => {
   passord: Yup.string().required('Password  is required').min(6,"Minimum length is 6 "),
 })
   const postGoogle=async(email)=>{
-     await axios.post(`http://localhost:8081/gSignup/${email}`).then((res)=>{
+     await axios.post(`https://interrective-demo-server.onrender.com/gSignup/${email}`).then((res)=>{
       navigate("/")
      }).catch((err)=>{
       toast.error(err.response.data||err.message)

@@ -17,7 +17,14 @@
   padding: 1px;
 }
 .Pagination_Active{
-  color: red;
+  color: #fff;
+  background-color: black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Pagination_Item{
   margin-left: 10px;

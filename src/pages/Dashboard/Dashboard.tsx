@@ -8,10 +8,15 @@ import { Modal } from "@mui/material"
 import {RxCross2} from "react-icons/rx"
 import Recomendation from "./Recomendation"
 import Header from "./Header"
+import {LiaLightbulb} from "react-icons/lia"
+import { AiOutlineClose } from "react-icons/ai"
+import OverviewDetails from "./OverviewDetails"
 const Dashboard = () => {
   const [data,setData]=useState([])
   const [data2,setData2]=useState([])
   const [open,setOpen]=useState(false)
+  const [rightOpen,setRightOpen]=useState(false)
+
   const [courseName,setCourseName]=useState(null)
   function paginateData(pageNumber:any, pageSize:any) {
     const startIndex = (pageNumber - 1) * pageSize;
@@ -41,6 +46,10 @@ const Dashboard = () => {
 
   };
   // console.log(data2[0]["Course Name"])
+  const handleSkill=(name:any)=>{
+    setRightOpen(true)
+    setCourseName(name)
+  }
   const handleCourse=(name:any)=>{
     setCourseName(name)
   }
@@ -65,8 +74,9 @@ const Dashboard = () => {
             </div>
       {
                 data2?.map((item:any,index)=>(
-                  <div onClick={()=>handleCourse(item["Course Name"])} key={index} className="p-3 relative hover:scale-[1.02]  w-[250px] cursor-pointer m-2 h-[180px] rounded-md bg-[whitesmoke]">
-                 <p className="text-[17px] text-black font-medium">{item["Course Name"]}</p>
+                  <div  key={index} className="p-3 relative hover:scale-[1.02]  w-[250px] cursor-pointer m-2 h-[180px] rounded-md bg-[whitesmoke]">
+                    <LiaLightbulb onClick={()=>handleSkill(item["Course Name"])}  size={30} className="absolute bottom-2 right-2"/>
+                 <p onClick={()=>handleCourse(item["Course Name"])} className="text-[17px] text-black font-medium">{item["Course Name"]}</p>
                  {
                   courseName===item["Course Name"]&&(
                  <div onClick={setOpenModel} className="absolute bottom-2 left-2 bg-[black] p-2 rounded-md">
@@ -129,6 +139,19 @@ const Dashboard = () => {
         )
         
       }
+      {rightOpen && (
+        <div className=" h-screen fixed right-0 top-0  w-[400px] bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] z-30 transition-all duration-00 overflow-hidden">
+          <div className=" h-screen bg-white p-3">
+            {/* Modal content */}
+            <AiOutlineClose
+                className="cursor-pointer absolute z-9999 right-2 "
+                size={32}
+                onClick={()=>setRightOpen(false)}
+              />
+            <OverviewDetails course={courseName} data={data2}/>
+          </div>
+        </div>
+      )}
      
     </div>
   )
